@@ -1,0 +1,48 @@
+ /* Custom CSS */
+ .hero-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+.skill-bar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+.skill-progress {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    transition: width 1s ease-in-out;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 32px;
+    height: calc(100% - 32px);
+    width: 2px;
+    background-color: #3b82f6;
+}
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #3b82f6;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.active-nav::after {
+    width: 100%;
+}

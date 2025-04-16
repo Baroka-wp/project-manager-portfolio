@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRotori Baroka | Project Manager | Full Stack Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            transition: width 1s ease-in-out;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 32px;
+            height: calc(100% - 32px);
+            width: 2px;
+            background-color: #3b82f6;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .active-nav::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">IROTORI BAROKA</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active-nav">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle">
+                    <i class="fas fa-bars text-2xl text-blue-600"></i>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden mt-4" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="nav-link active-nav">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-32 pb-20 text-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">IROTORI BAROKA</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">PROJECT MANAGER | FULL STACK WEB DEVELOPER</h2>
+                <p class="text-lg mb-8 opacity-90">A versatile professional with expertise in project management, web engineering and AI, dedicated to delivering high-quality, customer-focused results.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300">Hire Me</a>
+                    <a href="#projects" class="border-2 border-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition duration-300">View Work</a>
+                </div>
+                <div class="flex items-center mt-8 gap-4">
+                    <a href="mailto:birotori@gmail.com" class="text-white hover:text-blue-200 transition duration-300">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-200 transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-200 transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-200 transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-200 transition duration-300">
+                        <i class="fab fa-angellist text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-blue-200 transition duration-300">
+                        <i class="fab fa-medium text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="./images/my_image.jpeg" alt="IRotori Baroka" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-white shadow-xl">
+                    <div class="absolute -bottom-4 -right-4 bg-white text-blue-600 p-4 rounded-lg shadow-lg">
+                        <p class="font-bold">10+ Years</p>
+                        <p class="text-sm">Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+                    <img src="tokyo_international_conference.jpg" alt="IRotori Baroka" class="rounded-lg w-64 h-64 object-cover shadow-lg">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Who Am I?</h3>
+                    <p class="text-lg mb-6 text-gray-700">Senior Project Manager | Full Stack Web Developer | Founder | Social Entrepreneur. I am a versatile professional with expertise in project management, web engineering and AI. With a strong background in creating and managing technology solutions for small businesses using Agile methodologies, I am dedicated to delivering high-quality, customer-focused results.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bullseye text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Project Management</h4>
+                                <p class="text-gray-600">Managing developer teams and leading company innovation</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-laptop-code text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Web Development</h4>
+                                <p class="text-gray-600">Creating full-stack web applications with modern technologies</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-brain text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">AI Solutions</h4>
+                                <p class="text-gray-600">Building intelligent applications with machine learning</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-users text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Mentorship</h4>
+                                <p class="text-gray-600">Teaching and guiding junior developers and students</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Agile Scrum</div>
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Full Stack Developer</div>
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">AI Specialist</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">My Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Machine Learning & AI</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Deep Learning with Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">NLP</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">OpenAI API</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Google Studio</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Front-End</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">JavaScript/React/Redux</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HTML5/CSS3</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">jQuery</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Responsive Design</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Back-End</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Ruby/Rails</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Python/NumPy/Pandas</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">PostgreSQL/MongoDB</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">NodeJs/Firebase</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold mb-6 text-center">Tools & Methods</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white p-4 rounded-lg shadow-md w-16 h-16 flex items-center justify-center mb-2">
+                            <i class="fab fa-git-alt text-3xl text-blue-600"></i>
+                        </div>
+                        <span class="text-sm">Git/GitHub</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white p-4 rounded-lg shadow-md w-16 h-16 flex items-center justify-center mb-2">
+                            <i class="fas fa-cloud-upload-alt text-3xl text-blue-600"></i>
+                        </div>
+                        <span class="text-sm">Heroku</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white p-4 rounded-lg shadow-md w-16 h-16 flex items-center justify-center mb-2">
+                            <i class="fas fa-laptop-code text-3xl text-blue-600"></i>
+                        </div>
+                        <span class="text-sm">Colab</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white p-4 rounded-lg shadow-md w-16 h-16 flex items-center justify-center mb-2">
+                            <i class="fas fa-vial text-3xl text-blue-600"></i>
+                        </div>
+                        <span class="text-sm">RSpec/TDD</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white p-4 rounded-lg shadow-md w-16 h-16 flex items-center justify-center mb-2">
+                            <i class="fas fa-code text-3xl text-blue-600"></i>
+                        </div>
+                        <span class="text-sm">Chrome Dev Tools</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-white p-4 rounded-lg shadow-md w-16 h-16 flex items-center justify-center mb-2">
+                            <i class="fas fa-users-cog text-3xl text-blue-600"></i>
+                        </div>
+                        <span class="text-sm">Agile Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">My Experience</h2>
+            
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="space-y-8">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative timeline-item pl-12">
+                        <div class="absolute left-0 top-0 bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold">Full Stack Web and AI App Development</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">May 2020 - Present</span>
+                            </div>
+                            <p class="text-gray-700 mb-4">Developing AI-powered applications and full-stack web solutions for various clients.</p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-3">
+                                <li><span class="font-semibold">CoheadCoaching</span> - A website offering AI agents with optimized prompts.</li>
+                                <li><span class="font-semibold">Neovarim</span> - A solution enabling real estate companies to capture leads and automate qualification through AI-driven conversations.</li>
+                                <li><span class="font-semibold">CV-AI</span> - An app that uses AI to extract data from CVs and build databases.</li>
+                                <li><span class="font-semibold">GlobloLead</span> - Enhances lead management with AI-powered tools, supporting chatbot and call bot interactions.</li>
+                                <li><span class="font-semibold">Estate GPT</span> - An AI application designed for real estate agencies to qualify leads via WhatsApp chat and a VOIP system. Built with Node, React, Vector Database PostgreSQL, OpenAI.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="relative timeline-item pl-12">
+                        <div class="absolute left-0 top-0 bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold">PROSUITE AFRICA</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">March 2022 - Present</span>
+                            </div>
+                            <h4 class="text-blue-600 font-medium mb-3">Project Manager and Lead Dev (Remote & On site)</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Managing developer team</li>
+                                <li>Leading company innovation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="relative timeline-item pl-12">
+                        <div class="absolute left-0 top-0 bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold">ARCADIA</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">March 2022 - Present</span>
+                            </div>
+                            <h4 class="text-blue-600 font-medium mb-3">Project Manager Full Stack Web Developer (Remote)</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Developing applications from scratch for several clients</li>
+                                <li>Performing code reviews for colleagues</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="relative timeline-item pl-12">
+                        <div class="absolute left-0 top-0 bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold">MICROVERSE</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">March 2022 - Present</span>
+                            </div>
+                            <h4 class="text-blue-600 font-medium mb-3">Mentor (Volunteer, Remote)</h4>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Mentored junior web developers, providing technical support through code reviews</li>
+                                <li>Proposed improvements to code organization to improve code quality and overall performance</li>
+                                <li>Provided advice and tips on how to maintain motivation to maintain longevity in the program</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 5 -->
+                    <div class="relative timeline-item pl-12">
+                        <div class="absolute left-0 top-0 bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold">AFRICA SAMURAI</h3>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">January 2018 - Present</span>
+                            </div>
+                            <h4 class="text-blue-600 font-medium mb-3">Co-founder and Mentor (Cotonou, Benin)</h4>
+                            <p class="text-gray-700 mb-4">Teaching and mentoring young Africans in web programming</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 6 -->
+                    <div class="relative timeline-item pl-12">
+                        <div class="absolute left-0 top-0 bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-semibold">Notable Events & Achievements</h3>
+                            </div>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-3">
+                                <li><span class="font-semibold">May 2024:</span> SENIA - Partner at a national exhibition organized by the Ministry of Digital Affairs of Benin, focused on AI.</li>
+                                <li><span class="font-semibold">October 2023 - Present:</span> AOTS & DPro Scholarships - Awarded 64 scholarships in machine learning and web engineering to students in Benin.</li>
+                                <li><span class="font-semibold">November 2023:</span> International Conference on Digital Infrastructure and Cybersecurity - Led the organization of this event in collaboration with the Ministry of Digital Affairs as CEO of Africa Samurai.</li>
+                                <li><span class="font-semibold">November 2020 - December 2021:</span> Open Innovation Challenge with JICA - Managed and mentored a JICA-funded program providing web engineering capacity-building scholarships to 24 students.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Education</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Education 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold">2IE</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">May 2014</span>
+                    </div>
+                    <h4 class="text-blue-600 font-medium mb-4">Master in Strategic and Operational Management</h4>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Results-oriented management</li>
+                        <li>Resource management</li>
+                        <li>Audit and Strategic Planning</li>
+                        <li>Professional English</li>
+                    </ul>
+                </div>
+                
+                <!-- Education 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold">MICROVERSE</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">March 2022 - November 2022</span>
+                    </div>
+                    <h4 class="text-blue-600 font-medium mb-4">Remote Full Stack Web Development Program</h4>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Spent 1300+ hours mastering algorithms, data structures, and full-stack development</li>
+                        <li>Developed projects with Ruby, Rails, JavaScript, React, and Redux</li>
+                        <li>Developed skills in remote pair-programming using GitHub, industry-standard git flow, and daily standups</li>
+                        <li>Collaborated with international remote developers</li>
+                    </ul>
+                </div>
+                
+                <!-- Education 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold">DIVE INTO CODE</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">June 2020 - May 2022</span>
+                    </div>
+                    <h4 class="text-blue-600 font-medium mb-4">Remote Full Stack Web Engineer and Machine Learning</h4>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>720+ hours mastering algorithms, data structures, and full-stack development</li>
+                        <li>Developed projects with Ruby, Rails, Python, Colab, Pandas</li>
+                        <li>Sharpened skills in remote working</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Enterprise Software Implementation" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Enterprise Software Implementation</h3>
+                        <p class="text-gray-600 mb-4">Led the implementation of a company-wide ERP system for a Fortune 500 client.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">ERP</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Change Management</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">System Integration</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Completed: June 2022</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Commercial Complex Construction" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Commercial Complex Construction</h3>
+                        <p class="text-gray-600 mb-4">Managed the construction of a $8.5M mixed-use commercial complex.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Construction</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Budget Management</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Contractor Coordination</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Completed: March 2021</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Healthcare IT System Upgrade" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Healthcare IT System Upgrade</h3>
+                        <p class="text-gray-600 mb-4">Oversaw the transition to a new EHR system for a regional hospital network.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Healthcare IT</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Stakeholder Management</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Training Development</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium">Completed: September 2020</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Client Testimonials</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-blue-200 text-sm">CEO, TechSolutions Inc.</p>
+                        </div>
+                    </div>
+                    <p class="mb-6">"IRotori managed our most complex software implementation to date. His attention to detail and ability to anticipate challenges saved us countless hours and resources. The project was delivered two weeks ahead of schedule."</p>
+                    <div class="flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Michael Chen</h4>
+                            <p class="text-blue-200 text-sm">Director, Global Construction</p>
+                        </div>
+                    </div>
+                    <p class="mb-6">"Working with IRotori was a game-changer for our construction projects. His risk management approach helped us avoid costly delays, and his leadership kept the team motivated even during challenging phases of the project."</p>
+                    <div class="flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Lisa Rodriguez" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Dr. Lisa Rodriguez</h4>
+                            <p class="text-blue-200 text-sm">CMO, HealthCare Systems</p>
+                        </div>
+                    </div>
+                    <p class="mb-6">"The EHR implementation led by IRotori was the smoothest transition our network has experienced. His understanding of both technical and human factors in change management was exceptional. Staff adoption rates exceeded our expectations."</p>
+                    <div class="flex text-yellow-300">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Get In Touch</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <p class="text-gray-700 mb-8">Have a project in mind or want to discuss potential opportunities? Feel free to reach out through any of the channels below.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <a href="mailto:birotori@gmail.com" class="text-blue-600 hover:underline">birotori@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <a href="tel:+1234567890" class="text-blue-600 hover:underline">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-gray-700">Cotonou, Benin</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="font-semibold mb-4">Connect With Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                                <i class="fab fa-medium"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="Your email">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="Subject">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition duration-300" placeholder="Your message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-blue-400 mb-2">IRotori Baroka</div>
+                    <p class="text-gray-400">Project Management Professional</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-medium text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 IRotori Baroka. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active-nav');
+                    });
+                    this.classList.add('active-nav');
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav');
+                }
+            });
+        });
+
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Intersection Observer for skill bars animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.1});
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
