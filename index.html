@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IRotori Baroka | Technical Project Manager | AI Solutions Architect</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta name="theme-color" content="#FF7A29">
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -526,31 +533,35 @@
     </section>
 
     <!-- Contact Section - DARK with WHITE text -->
-    <section id="contact" class="section-dark py-20 px-6 relative">
+    <section id="contact" class="section-dark py-20 px-6 relative contact-section">
         <!-- SVG Background for dark sections is already added at the body level -->
         <div class="container mx-auto relative z-10">
             <div class="glass-card p-8 md:p-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-8 text-orange-500">Schedule a Consultation</h2>
                 <div class="grid md:grid-cols-2 gap-12">
                     <div>
-                        <!-- Calendly inline widget begin -->
-                        <div class="glass-card p-6 overflow-hidden rounded-lg" style="min-height: 630px;">
+                        <!-- Desktop Calendly -->
+                        <div class="glass-card p-6 overflow-hidden rounded-lg hidden md:block" style="min-height: 630px;">
                             <div class="calendly-inline-widget" data-url="https://calendly.com/baroka/connecting-meeting" style="min-width:320px;height:600px;"></div>
                             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                         </div>
-                        <!-- Calendly inline widget end -->
+                        <!-- Mobile Calendly Button -->
+                        <button id="openCalendly" class="orange-button w-full md:hidden py-4 px-6 rounded-lg font-medium transition duration-300 flex items-center justify-center space-x-2">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule a Meeting</span>
+                        </button>
                     </div>
-                    <div class="flex flex-col justify-center space-y-6">
+                    <div class="flex flex-col justify-center space-y-6 contact-info">
                         <div>
                             <h3 class="text-xl font-semibold mb-6 text-yellow-400">Contact Information</h3>
                             <div class="space-y-4">
-                                <div class="flex items-center">
+                                <div class="flex items-center contact-item">
                                     <div class="glass-card icon-container p-3 rounded-full mr-4 flex items-center justify-center w-10 h-10">
                                         <i class="fas fa-envelope"></i>
                                     </div>
-                                    <a href="mailto:birotori@gmail.com">birotori@gmail.com</a>
+                                    <a href="mailto:birotori@gmail.com" class="hover:text-orange-500 transition-colors">birotori@gmail.com</a>
                                 </div>
-                                <div class="flex items-center">
+                                <div class="flex items-center contact-item">
                                     <div class="glass-card icon-container p-3 rounded-full mr-4 flex items-center justify-center w-10 h-10">
                                         <i class="fas fa-map-marker-alt"></i>
                                     </div>
@@ -560,7 +571,7 @@
                         </div>
                         <div>
                             <h4 class="font-semibold mb-4 text-yellow-400">Connect With Me</h4>
-                            <div class="flex space-x-4">
+                            <div class="flex space-x-4 social-icons">
                                 <a href="https://github.com/Baroka-wp" class="social-icon" target="_blank">
                                     <i class="fab fa-github"></i>
                                 </a>
@@ -573,7 +584,7 @@
                             </div>
                         </div>
                         
-                        <div class="glass-card p-6 mt-8">
+                        <div class="glass-card p-6 mt-8 why-schedule">
                             <h4 class="font-semibold mb-4 text-yellow-400">Why Schedule a Call?</h4>
                             <ul class="space-y-2 text-white">
                                 <li class="flex items-start">
@@ -595,6 +606,18 @@
             </div>
         </div>
     </section>
+
+    <!-- Calendly Modal -->
+    <div id="calendlyModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="fixed inset-0 flex items-center justify-center p-4">
+            <div class="glass-card w-full h-full md:h-auto md:w-3/4 relative">
+                <button id="closeCalendly" class="absolute top-4 right-4 text-white hover:text-orange-500 z-10">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <div class="calendly-inline-widget h-full" data-url="https://calendly.com/baroka/connecting-meeting"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer - ORANGE with WHITE text -->
     <footer class="hero-gradient py-8 px-6 relative">
@@ -647,6 +670,28 @@
         if (skillsSection) {
             observer.observe(skillsSection);
         }
+
+        // Calendly Modal functionality
+        const modal = document.getElementById('calendlyModal');
+        const openBtn = document.getElementById('openCalendly');
+        const closeBtn = document.getElementById('closeCalendly');
+
+        openBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
     </script>
 </body>
 </html>

@@ -236,3 +236,95 @@
 .accent-text {
     color: var(--yellow-accent);
 }
+
+/* Contact Section Responsive Styles */
+@media (max-width: 768px) {
+    .contact-section .glass-card {
+        padding: 1.5rem;
+    }
+
+    .contact-section .calendly-inline-widget {
+        min-width: 100% !important;
+        height: 500px !important;
+    }
+
+    .contact-section .contact-info {
+        margin-top: 2rem;
+    }
+
+    .contact-section .social-icons {
+        justify-content: center;
+    }
+
+    .contact-section .why-schedule {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section .glass-card {
+        padding: 1rem;
+    }
+
+    .contact-section .calendly-inline-widget {
+        height: 400px !important;
+    }
+
+    .contact-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .contact-section h3 {
+        font-size: 1.25rem;
+    }
+
+    .contact-section .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .contact-section .icon-container {
+        margin-right: 0;
+    }
+}
+
+/* Calendly Modal Styles */
+#calendlyModal {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+#calendlyModal .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+#calendlyModal .calendly-inline-widget {
+    min-height: 600px;
+}
+
+@media (max-width: 768px) {
+    #calendlyModal .calendly-inline-widget {
+        min-height: 100vh;
+    }
+}
+
+#openCalendly {
+    background: var(--orange-primary);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+#openCalendly:hover {
+    background: #FF5500;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 122, 41, 0.4);
+}
+
+#openCalendly i {
+    font-size: 1.25rem;
+}
